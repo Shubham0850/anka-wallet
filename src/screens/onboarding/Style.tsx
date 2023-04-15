@@ -1,5 +1,7 @@
-import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
+
+// @ts-ignore
+import styled from 'styled-components/native';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -12,12 +14,12 @@ export const Container = styled.View`
 `;
 
 export const ImageBox = styled.View`
-    width: 100%;
-`
+  width: 100%;
+`;
 
 export const ButtonWrapper = styled.View`
-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: baseline;
-`
+`;

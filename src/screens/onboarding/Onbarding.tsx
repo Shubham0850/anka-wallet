@@ -8,7 +8,6 @@ import Web3Auth, {
   LoginParams,
   OPENLOGIN_NETWORK,
 } from '@web3auth/react-native-sdk';
-import {FaHeart} from 'react-icons/fa';
 import {ButtonWrapper, Container, ImageBox} from './Style';
 
 const scheme = 'web3authrnbareauth0example'; // Or your desired app redirection scheme
@@ -17,9 +16,7 @@ const resolvedRedirectUrl = `${scheme}://openlogin`;
 const clientId =
   'BDcf0j7yAVTSKh9ux49CCeoJyfJuPpbdDNp37i6Lz3WAfeTm15UgSazVG7IhifYPEy1_u9FlSmDm78lI1Ryxeoc';
 
-const windowHeight = Dimensions.get('window').height;
-
-const OnboardingScreen1 = ({navigation}) => {
+const OnboardingScreen1 = () => {
   const [key, setKey] = useState('');
   const [userInfo, setUserInfo] = useState('');
   const [console, setConsole] = useState('');
@@ -51,7 +48,6 @@ const OnboardingScreen1 = ({navigation}) => {
         <ImageBox>
           <Image
             source={require('../../assets/logo-icon-dark.png')}
-            style={styles.image}
             alt="logo"
           />
         </ImageBox>
@@ -66,13 +62,15 @@ const OnboardingScreen1 = ({navigation}) => {
             fontWeight={'bold'}>
             Crypto Wallet
           </Text>
-          <Text style={styles.subtitle}>
+          <Text>
             All in one crypto wallet for all your need. We make it safe & easy
             for you to store, buy, send, spend, swap tokens and NFTs.
           </Text>
         </Box>
         <ButtonWrapper>
-          <Button size={'lg'} marginRight={2}>Create Wallet</Button>
+          <Button size={'lg'} marginRight={2}>
+            Create Wallet
+          </Button>
           <Button size={'lg'} variant="outline" borderColor={'black'}>
             Explore
           </Button>
@@ -81,81 +79,3 @@ const OnboardingScreen1 = ({navigation}) => {
     </ScrollView>
   );
 };
-
-const OnboardingScreen2 = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../assets/squre-white-logo.png')}
-        style={styles.image}
-      />
-      <Text style={styles.title}>Discover new features</Text>
-      <Text style={styles.subtitle}>This is the second onboarding screen</Text>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Onboarding3')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Next</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const OnboardingScreen3 = ({navigation}) => {
-  return (
-    <View style={styles.container}>
-      <Image
-        source={require('../../assets/squre-white-logo.png')}
-        style={styles.image}
-      />
-      <Text style={styles.title}>Get started now</Text>
-      <Text style={styles.subtitle}>This is the third onboarding screen</Text>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Home')}
-        style={styles.button}>
-        <Text style={styles.buttonText}>Get started</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: windowHeight - 88,
-  },
-  image: {
-    width: '100%',
-    resizeMode: 'contain',
-  },
-  imageBox: {
-    flex: 1,
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-  },
-  title: {
-    fontWeight: 'bold',
-    textAlign: 'left',
-    color: '#000',
-  },
-  subtitle: {
-    fontSize: 18,
-    marginBottom: 32,
-    textAlign: 'left',
-    color: '#000',
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    borderRadius: 4,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-  },
-});
-
-export {OnboardingScreen1, OnboardingScreen2, OnboardingScreen3};

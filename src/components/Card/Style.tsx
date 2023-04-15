@@ -1,6 +1,12 @@
 import {Text, View} from 'native-base';
+import {colors} from '../../utils/colors';
+
+// @ts-ignore
 import styled from 'styled-components/native';
-import { colors } from '../../utils/colors';
+
+export const Container = styled(View)`
+  padding: 20px;
+`;
 
 export const CreditCardContainer = styled(View)`
   width: 100%;
@@ -8,11 +14,7 @@ export const CreditCardContainer = styled(View)`
   background-color: #fff;
   border-radius: 20px;
   padding: 20px;
-  /* box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25); */
-
-  margin: 10px 0;
   border: 1px solid ${colors.grey};
-  // remove it letter
 `;
 
 export const CardHeader = styled(View)`
@@ -21,10 +23,10 @@ export const CardHeader = styled(View)`
 `;
 
 export const CardAmount = styled(Text)`
-    font-size: 25px;
-    line-height: 25px;
-    font-weight: bold;
-`
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: bold;
+`;
 
 export const CardLogo = styled(Text)`
   width: 50px;
@@ -39,7 +41,7 @@ export const CardNumber = styled(Text)`
 `;
 
 export const CardFooter = styled(View)`
-margin-top: auto;
+  margin-top: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

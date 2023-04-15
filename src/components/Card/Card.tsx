@@ -7,23 +7,27 @@ import {
   CardLogo,
   CardName,
   CardNumber,
+  Container,
   CreditCardContainer,
 } from './Style';
 import {formateAddress} from '../../utils/cryptoUtils';
 import {Box, Image} from 'native-base';
 
+// @ts-ignore
+import Icon from "react-native-vector-icons/Ionicons"
 
 const WALLET_ADDRESS = 'F4GyxqdGGQf7pw223cUjqhw5miQwVC5e9rjExt2SrHK2';
 
 const WalletCard = () => {
   return (
-    <CreditCardContainer>
+   <Container>
+     <CreditCardContainer>
       <CardHeader>
         <CardAmount>
         ₹ 12,534.00
         </CardAmount>
         
-
+      <Icon name="eye" style={{fontSize: 25, lineHeight: 25}}/>
       </CardHeader>
       <CardFooter>
         <Box>
@@ -41,6 +45,7 @@ const WalletCard = () => {
         </CardLogo>
       </CardFooter>
     </CreditCardContainer>
+   </Container>
   );
 };
 

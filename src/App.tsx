@@ -7,8 +7,11 @@ import {
 } from 'react-native';
 
 import {OnboardingScreen1} from './screens/onboarding/Onbarding';
-import {Box, NativeBaseProvider, extendTheme} from 'native-base';
+import {Box, NativeBaseProvider, ScrollView, extendTheme} from 'native-base';
 import WalletCard from './components/Card/Card';
+import ActionButtons from './components/ActionButtons/ActionButtons';
+import Tokens from './components/Tokens/Tokens';
+import NavBar from './components/Nav/Nav';
 
 const theme = extendTheme({
   colors: {
@@ -92,9 +95,12 @@ export default function App() {
         <SafeAreaView style={backgroundStyle}>
           <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
           {/* <OnboardingScreen1 /> */}
-          <Box padding={5}>
+          <ScrollView >
+            <NavBar/>
           <WalletCard/>
-          </Box>
+          <ActionButtons/>
+          <Tokens/>
+          </ScrollView>
         </SafeAreaView>
       </NavigationContainer>
     </NativeBaseProvider>
