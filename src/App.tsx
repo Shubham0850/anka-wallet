@@ -1,32 +1,31 @@
-import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-} from 'react-native';
-
-import {OnboardingScreen1} from './screens/onboarding/Onbarding';
-import {Box, NativeBaseProvider, ScrollView, extendTheme} from 'native-base';
-import WalletCard from './components/Card/Card';
-import ActionButtons from './components/ActionButtons/ActionButtons';
-import Tokens from './components/Tokens/Tokens';
-import NavBar from './components/Nav/Nav';
+import {SafeAreaView, StatusBar} from 'react-native';
+import {NativeBaseProvider, extendTheme} from 'native-base';
+import Navigation from './navigation';
+import Home from './screens/Home';
+import Intro from './screens/Onboarding/Intro';
+import Welcome from './screens/Onboarding/Welcome';
+import WalletSetup from './screens/Onboarding/WalletSetup';
+import CreateWallet from './screens/Onboarding/CreateWallet';
+import GeneratePhrase from './screens/Onboarding/GeneratePhrase';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const theme = extendTheme({
   colors: {
     // Add new color
     primary: {
-        50: "#E0E0E0",
-        100: "#B3B3B3",
-        200: "#808080",
-        300: "#4D4D4D",
-        400: "#1A1A1A",
-        500: "#000000",
-        600: "#000000",
-        700: "#000000",
-        800: "#000000",
-        900: "#000000",  
+      50: '#E0E0E0',
+      100: '#B3B3B3',
+      200: '#808080',
+      300: '#4D4D4D',
+      400: '#1A1A1A',
+      500: '#000000',
+      600: '#000000',
+      700: '#000000',
+      800: '#000000',
+      900: '#000000',
     },
     // Redefining only one shade, rest of the color will remain same.
     amber: {
@@ -72,56 +71,26 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         rounded: 50,
-    },
-    defaultProps: {
+      },
+      defaultProps: {
         size: 'lg',
         paddingBottom: 4,
         paddingTop: 4,
         paddingRight: 10,
-        paddingLeft: 10
+        paddingLeft: 10,
       },
     },
   },
 });
 
-export default function App() {
-  const backgroundStyle = {
-    backgroundColor: '#fff',
-  };
-
+function App() {
   return (
     <NativeBaseProvider theme={theme}>
-      <NavigationContainer>
-        <SafeAreaView style={backgroundStyle}>
-          <StatusBar backgroundColor={backgroundStyle.backgroundColor} />
-          {/* <OnboardingScreen1 /> */}
-          <ScrollView >
-            <NavBar/>
-          <WalletCard/>
-          <ActionButtons/>
-          <Tokens/>
-          </ScrollView>
-        </SafeAreaView>
-      </NavigationContainer>
+      <SafeAreaProvider>
+      <Navigation />
+      </SafeAreaProvider>
     </NativeBaseProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+export default App;

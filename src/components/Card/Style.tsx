@@ -15,6 +15,9 @@ export const CreditCardContainer = styled(View)`
   border-radius: 20px;
   padding: 20px;
   border: 1px solid ${colors.grey};
+
+  position: relative;
+  overflow: hidden;
 `;
 
 export const CardHeader = styled(View)`
@@ -36,7 +39,6 @@ export const CardLogo = styled(Text)`
 export const CardNumber = styled(Text)`
   font-size: 18px;
   line-height: 24px;
-  font-weight: bold;
   color: #555;
 `;
 
@@ -44,6 +46,7 @@ export const CardFooter = styled(View)`
   margin-top: auto;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: space-between;
 `;
 
@@ -55,4 +58,14 @@ export const CardExpiration = styled(Text)`
 export const CardName = styled(Text)`
   font-size: 16px;
   color: #555;
+  font-weight: bold;
+`;
+
+export const BgImage = styled(View)`
+  position: absolute;
+  top: 0;
+  right: -100;
+  width: 100%;
+  opacity: 0.2;
+  z-index: -1;
 `;

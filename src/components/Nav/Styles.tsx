@@ -2,6 +2,7 @@ import {Image, View} from 'native-base';
 
 // @ts-ignore
 import styled from 'styled-components/native';
+import { colors } from '../../utils/colors';
 
 export const Container = styled(View)`
   flex-direction: row;
@@ -12,12 +13,13 @@ export const Container = styled(View)`
 `;
 
 export const UserIcon = styled(Image)`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50px;
+  border: 1px solid ${colors.grey};
 `;
 
 export const LogoImage = styled.Image`
-  width: 145px;
+  width: 300px;
   height: 30px;
 `;

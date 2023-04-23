@@ -1,14 +1,17 @@
 import React from 'react';
 import {Container, LogoImage, UserIcon} from './Styles';
+import {TouchableOpacity} from 'react-native';
 
-const NavBar = () => {
+const NavBar = ({navigation}) => {
   return (
     <Container>
       <LogoImage
-        source={require('../../assets/anka-pay-dark.png')}
+        source={require('../../assets/flat-dark-logo.png')}
         alt="anka pay logo"
       />
-      <UserIcon source={require('../../assets/shubham.png')} alt="icon" />
+      <TouchableOpacity   onPress={() => navigation.navigate('Profile')}>
+        <UserIcon source={require('../../assets/shubham.png')} alt="icon" />
+      </TouchableOpacity>
     </Container>
   );
 };
